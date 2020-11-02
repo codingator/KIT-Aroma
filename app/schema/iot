@@ -1,0 +1,378 @@
+# user
+id = request.form["id"]
+serialNum = request.form["serialNum"]
+location = request.form["location"]
+recipe = request.form["recipe"]
+functionP = request.form["functionP"]
+functionL = request.form["functionL"]
+functionM = request.form["functionM"]
+timeStamp = request.form["timeStamp"]
+
+# recipe
+idx = request.form["idx"]
+title = request.form["title"]
+author = request.form["author"]
+functionP = request.form["functionP"]
+functionL = request.form["functionL"]
+functionM = request.form["functionM"]
+timeStamp = request.form["timeStamp"]
+
+# perfume
+idx = request.form["idx"]
+title = request.form["title"]
+function = request.form[""]
+timeStamp = request.form["timeStamp"]
+
+# moodLight
+idx = request.form["idx"]
+title = request.form["title"]
+function = request.form[""]
+timeStamp = request.form["timeStamp"]
+
+# music
+idx = request.form["idx"]
+title = request.form["title"]
+function = request.form[""]
+timeStamp = request.form["timeStamp"]
+
+# device
+idx = request.form["idx"]
+serialNum = request.form["serialNum"]
+timeStamp = request.form["timeStamp"]
+
+#sensorData
+idx = request.form["idx"]
+serialNum = request.form["serialNum"]
+temperature = request.form["temperature"]
+humedity = request.form["humedity"]
+timeStamp = request.form["timeStamp"]
+
+# publicWeather
+local = request.form["local"]
+weather = request.form["weather"]
+perceivedTemperature = request.form["perceivedTemperature"]
+humedity = request.form["humedity"]
+windSpeed = request.form["windSpeed"]
+dailyPrecipitation = request.form["dailyPrecipitation"]
+
+# admin
+id = request.form["id"]
+password = request.form["password"]
+
+
+-------------------------------------------------------------------------------
+
+
+# user
+# insert
+id = request.form["id"]
+serialNum = request.form["serialNum"]
+location = request.form["location"]
+recipe = request.form["recipe"]
+functionP = request.form["functionP"]
+functionL = request.form["functionL"]
+functionM = request.form["functionM"]
+timeStamp = 'now()'
+
+"INSERT INTO user (id, serialNum, location, recipe, functionP, functionL, functionM, timeStamp) \
+            VALUE('%s','%s','%s', %d, %d, %d, %d, %s)" % (id, serialNum, location, recipe, functionP, functionL, functionM, timeStamp)
+
+# update
+user = request.form["user"]
+id = request.form["id"]
+serialNum = request.form["serialNum"]
+location = request.form["location"]
+recipe = request.form["recipe"]
+functionP = request.form["functionP"]
+functionL = request.form["functionL"]
+functionM = request.form["functionM"]
+
+"UPDATE user SET id = '%s', serialNum = '%s', location = '%s', recipe = %d, functionP = %d, functionL = %d, functionM = %d \
+            WHERE id = '%s'" % (id, serialNum, location, recipe, functionP, functionL, functionM, user)
+
+# delete
+id = request.form["id"]
+
+"DELETE FROM user WHERE id = '%s'" % (id)
+
+#########################################################
+
+# recipe
+# insert
+idx = ''
+title = request.form["title"]
+author = request.form["author"]
+functionP = request.form["functionP"]
+functionL = request.form["functionL"]
+functionM = request.form["functionM"]
+timeStamp = 'now()'
+
+"INSERT INTO recipe (title, author, functionP, functionL, functionM, timeStamp) \
+            VALUE('%s','%s', %d, %d, %d, %s)" % (title, author, functionP, functionL, functionM, timeStamp)
+
+# update
+idx = request.form["idx"]
+title = request.form["title"]
+author = request.form["author"]
+functionP = request.form["functionP"]
+functionL = request.form["functionL"]
+functionM = request.form["functionM"]
+timeStamp = 'now()'
+
+"UPDATE recipe SET title = '%s', functionP = %d, functionL = %d, functionM = %d \
+            WHERE idx = %d, author = '%s'" % (title, functionP, functionL, functionM, idx, author)
+
+# delete
+idx = request.form["idx"]
+author = request.form["author"]
+
+"DELETE FROM recipe WHERE idx = %d, author = '%s'" % (idx, author)
+
+#########################################################
+
+# perfume
+# insert
+idx = ''
+title = request.form["title"]
+function = request.form["function"]
+timeStamp = 'now()'
+
+"INSERT INTO perfume (title, function, timeStamp) \
+            VALUE('%s', %d, %s)" % (title, function, timeStamp)
+
+# update
+idx = request.form["idx"]
+title = request.form["title"]
+function = request.form["function"]
+
+"UPDATE perfume SET title = '%s', function = %d \
+            WHERE idx = %d" % (title, function, idx)
+
+# delete
+idx = request.form["idx"]
+
+"DELETE FROM perfume WHERE idx = %d" % (idx)
+
+#########################################################
+
+# moodLight
+# insert
+idx = ''
+title = request.form["title"]
+function = request.form["function"]
+timeStamp = 'now()'
+
+"INSERT INTO moodLight (title, function, timeStamp) \
+            VALUE('%s', %d, %s)" % (title, function, timeStamp)
+
+# update
+idx = request.form["idx"]
+title = request.form["title"]
+function = request.form["function"]
+
+"UPDATE moodLight SET title = '%s', function = %d \
+            WHERE idx = %d" % (title, function, idx)
+
+# delete
+idx = request.form["idx"]
+
+"DELETE FROM moodLight WHERE idx = %d" % (idx)
+
+#########################################################
+
+# music
+# insert
+idx = ''
+title = request.form["title"]
+function = request.form["function"]
+timeStamp = 'now()'
+
+"INSERT INTO music (title, function, timeStamp) \
+            VALUE('%s', %d, %s)" % (title, function, timeStamp)
+
+# update
+idx = request.form["idx"]
+title = request.form["title"]
+function = request.form["function"]
+
+"UPDATE music SET title = '%s', function = %d \
+            WHERE idx = %d" % (title, function, idx)
+
+# delete
+idx = request.form["idx"]
+
+"DELETE FROM music WHERE idx = %d" % (idx)
+
+#########################################################
+
+# device
+# insert
+idx = ''
+serialNum = request.form["serialNum"]
+timeStamp = 'now()'
+
+"INSERT INTO device (serialNum, timeStamp) \
+            VALUE('%s', %s)" % (serialNum, timeStamp)
+
+# update
+idx = request.form["idx"]
+serialNum = request.form["serialNum"]
+
+"UPDATE device SET serialNum = '%s' \
+            WHERE idx = %d" % (serialNum, idx)
+
+# delete
+idx = request.form["idx"]
+
+"DELETE FROM device WHERE idx = %d" % (idx)
+
+#########################################################
+
+# sensorData
+# insert
+idx = ''
+serialNum = request.form["serialNum"]
+temperature = request.form["temperature"]
+humedity = request.form["humedity"]
+timeStamp = 'now()'
+
+"INSERT INTO sensorData (serialNum, temperature, humedity, timeStamp) \
+            VALUE('%s', %f, %f, %s)" % (serialNum, temperature, humedity, timeStamp)
+
+# update
+# 건들면 안됨
+
+# delete
+idx = request.form["idx"]
+
+"DELETE FROM sensorData WHERE idx = %d" % (idx)
+
+#########################################################
+
+# publicWeather
+# insert
+local = request.form["local"]
+weather = request.form["weather"]
+perceivedTemperature = request.form["perceivedTemperature"]
+humedity = request.form["humedity"]
+windSpeed = request.form["windSpeed"]
+dailyPrecipitation = request.form["dailyPrecipitation"]
+
+"INSERT INTO publicWeather (local, weather, perceivedTemperature, ,humedity, windSpeed, dailyPrecipitation) \
+            VALUE('%s', '%s', %f, %f, %f, %f)" % (local, weather, perceivedTemperature, humedity, windSpeed, dailyPrecipitation)
+
+# update
+local = request.form["local"]
+weather = request.form["weather"]
+perceivedTemperature = request.form["perceivedTemperature"]
+humedity = request.form["humedity"]
+windSpeed = request.form["windSpeed"]
+dailyPrecipitation = request.form["dailyPrecipitation"]
+
+"UPDATE publicWeather SET weather = '%s', perceivedTemperature = %f, humedity = %f, windSpeed = %f, dailyPrecipitation = %f \
+            WHERE local = '%s'" % (weather, perceivedTemperature, humedity, windSpeed, dailyPrecipitation, local)
+
+# delete
+local = request.form["local"]
+
+"DELETE FROM publicWeather WHERE local = '%s'" % (local)
+
+#########################################################
+
+# admin
+# insert
+id = request.form["id"]
+password = request.form["password"]
+
+"INSERT INTO admin (id, password) \
+            VALUE('%s', '%s')" % (id, password)
+
+# update
+id = request.form["id"]
+password = request.form["password"]
+
+"UPDATE admin SET password = '%s' \
+            WHERE id = '%s'" % (password, id)
+
+# delete
+id = request.form["id"]
+password = request.form["password"]
+
+"DELETE FROM admin 
+WHERE id = '%s'" % (id)
+
+#########################################################
+
+# 테스트 안해봤기에 오류날 수 있음
+
+# user
+id: aroma
+serialNum: IOT-AROMA-M1
+location: 우동
+recipe: 0
+functionP: 1
+functionL: 4
+functionM: 2
+timeStamp: now()
+
+# recipe
+idx: n
+title: My Sweet Home
+author: aroma
+functionP: 2
+functionL: 2
+functionM: 3
+timeStamp: now()
+
+# perfume
+idx = n
+title = name
+function = 0-4
+timeStamp: now()
+
+# moodLight
+idx = n
+title = name
+function = 0-4
+timeStamp: now()
+
+# music
+idx = n
+title = name
+function = 0-4
+timeStamp: now()
+
+# device
+idx = n
+serialNum = IOT-AROMA-M(1-3)
+timeStamp: now()
+
+#sensorData
+idx: n
+serialNum: IOT-AROMA-M(1-3)
+temperature: 0.0-30.0
+humedity: 0.0-30.0
+timeStamp: now()
+
+# publicWeather
+local: 우동
+weather: 맑음, 흐림, 비, 눈
+perceivedTemperature: 0.0-30.0
+humedity: 0.0-30.0
+windSpeed: 0.0-30.0
+dailyPrecipitation: 0.0-30.0
+
+# admin
+id: admin, guest
+password: '1234', '4321'
+
+
+INSERT INTO user (id, serialNum, location, recipe, functionP, functionL, functionM, timeStamp) VALUE('aroma', 'IOT-AROMA-M1', '우동', 0, 1, 4, 2, now());
+INSERT INTO recipe (title, author, functionP, functionL, functionM, timeStamp) VALUE('My Sweet Home', 'aroma', 2, 2, 3, now());
+INSERT INTO perfume (title, function, tiemStamp) VALUE('mint', 0, now());
+INSERT INTO moodlight (title, function, tiemStamp) VALUE('blue', 0, now());
+INSERT INTO music (title, function, tiemStamp) VALUE('QueenBee', 0, now());
+INSERT INTO device (serialNum, timeStamp) VALUE('IOT-AROMA-M1', now());
+INSERT INTO sensorData (serialNum, temperature, humedity, timeStamp) VALUE('IOT-AROMA-M1', 19.8, 1.4, now());
+INSERT INTO publicweather (local, weather, perceivedTemperature, humedity, windSpeed, dailyPrecipitation) VALUE('우동', '맑음', 15.5, 18.7, 1.3, 0);
+INSERT INTO admin (id, password) VALUE('admin', '1234');
